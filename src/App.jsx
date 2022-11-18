@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import.meta.env.BASE_URL;
 
 // const API = "http://localhost:4000/mobiles";
-
 
 function App() {
 
@@ -29,8 +29,11 @@ function App() {
   //   },
   // ];
   const [mobiles, setMobiles] = useState([]);
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API}}/mobiles`)
+
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
+    useEffect(() => {
+    fetch(`${baseUrl}/mobiles`)
       .then((data) => data.json())
       .then((mbs) => setMobiles(mbs));
   }, []);
